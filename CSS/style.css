@@ -1,0 +1,11 @@
+body {
+  background-image: url(../img/971586.jpg);
+  background-size: cover;
+}
+h1,
+h2 {
+  border: 5px;
+  font-weight: bold;
+  font-size: large;
+  font-family: "Times New Roman", Times, serif;
+}
