@@ -51,6 +51,7 @@ let preguntas = [
     }
 ];
 
+
 let formJugador = document.getElementById("formJugador");
 let nombre = document.getElementById("nombre");
 let edad = document.getElementById("edad");
@@ -58,18 +59,19 @@ let nacionalidad = document.getElementById("nacionalidad");
 let formPreguntas = document.getElementById("formPreguntas");
 let resultado = document.getElementById("resultado");
 let recompensa = document.getElementById("recompensa");
-
-resultado.hidden = true;
+let ranking = document.getElementById("ranking")
 
 
 let jugador;
 let repetirPrograma = false;
-
+let jugadorLS
 let correcto = 0;
 let incorrecto = 50;
 let berriesTotales = 0;
-let error;
-let listaJugadores = [];
+let listaJugadores = JSON.parse(localStorage.getItem("listaJugadores")) || [];
+let listaJugadoresenLS
+
+console.log(listaJugadores)
 
 class Jugador {
     constructor(nombre, edad, nacionalidad, recompensa) {
@@ -79,6 +81,7 @@ class Jugador {
         this.recompensa = recompensa;
     }
 }
+
 
 function mostrarPreguntas() {
     formPreguntas.innerHTML = "";
@@ -135,15 +138,17 @@ formJugador.addEventListener("submit", (e) => {
     jugador = new Jugador(nombre.value, edad.value, nacionalidad.value, 0);
     formJugador.hidden = true;
     mostrarPreguntas();
+    
+    
 });
 
 formPreguntas.addEventListener("submit", (e) => {
     e.preventDefault();
     let respuestasCorrectas = evaluarRespuestas();
     jugador.recompensa = respuestasCorrectas;
-    listaJugadores.push(jugador);
-    listaJugadores.sort((jugadorA, jugadorB) => jugadorB.recompensa - jugadorA.recompensa);
+    
     mostrarResultado();
+
     
    
 });
@@ -154,6 +159,8 @@ formJugador.addEventListener("submit", () => {
         repetirPrograma = true;
     }
 });
+
+
 
 function mostrarResultado() {
     resultado.hidden = false
@@ -175,6 +182,14 @@ function mostrarResultado() {
     } else if (berriesTotales < 30000000 && berriesTotales >= 500) {
         recompensa.innerText ="Tu recompensa es de " + berriesTotales + " Berries. ¡Lo que tienes de pirata lo tienes de guapo!";
     }
+    
+    
+    
+    listaJugadores.push(jugador);
+    
+    localStorage.setItem("listaJugadores", JSON.stringify(listaJugadores))
+
+
 
 
 }
