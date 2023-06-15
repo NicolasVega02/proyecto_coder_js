@@ -1,11 +1,78 @@
-body {
-  background-image: url(../img/971586.jpg);
-  background-size: cover;
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 5px;
 }
-h1,
+
+h1 {
+  color: #e63946;
+}
+
 h2 {
-  border: 5px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+label {
+  display: block;
   font-weight: bold;
-  font-size: large;
-  font-family: "Times New Roman", Times, serif;
+  color: #1d3557;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 3px;
+  border: 1px solid #ced4da;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #457b9d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1d3557;
+}
+
+#formPreguntas {
+  text-align: left;
+  margin-top: 30px;
+}
+
+#formPreguntas p {
+  margin-bottom: 10px;
+  color: #1d3557;
+}
+
+#formPreguntas label {
+  display: block;
+  margin-bottom: 5px;
+  color: #000;
+}
+
+#formPreguntas input[type="radio"] {
+  margin-right: 5px;
+}
+
+#agregarJugador {
+  margin-top: 30px;
+}
+
+#agregarJugador label {
+  margin-left: 5px;
+  color: #000;
 }

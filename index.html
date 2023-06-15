@@ -1,20 +1,48 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./CSS/style.css" />
-    <title>Simulador de recompensas!</title>
+    <title>Trivia One Piece</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <main>
-      <h1>¡¿Cuanto sabes de one piece!?</h1>
-      <h2>
-        Segun tu recompensa sabras si puedes llegar a ser el ¡ REY DE LOS
-        PIRATAS !
-      </h2>
-    </main>
-    <script src="./js/script.js"></script>
+    <div class="container">
+      <h1>Conviertete en el proximo rey de los piratas!</h1>
+      <form id="formJugador">
+        <h2>ingresa tu nombre de pirata</h2>
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" required />
+        </div>
+        <div class="form-group">
+          <label for="edad">Edad:</label>
+          <input type="number" id="edad" required />
+        </div>
+        <div class="form-group">
+          <label for="nacionalidad">Nacionalidad:</label>
+          <input type="text" id="nacionalidad" required />
+        </div>
+        <button type="submit">Iniciar Juego</button>
+      </form>
+
+      <form id="formPreguntas" hidden>
+        <h2>Preguntas</h2>
+      </form>
+
+      <form id="agregarJugador" hidden>
+        <div class="form-group">
+          <input type="checkbox" id="cbox" />
+          <label for="cbox">Repetir programa</label>
+        </div>
+        <button type="submit">Agregar Jugador</button>
+      </form>
+      <div id="resultado">
+        <p id="recompensa"></p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
