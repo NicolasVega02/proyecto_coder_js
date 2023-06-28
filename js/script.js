@@ -63,13 +63,16 @@ let ranking = document.getElementById("ranking")
 
 
 let jugador;
-let repetirPrograma = false;
+
 let jugadorLS
 let correcto = 0;
 let incorrecto = 50;
 let berriesTotales = 0;
 let listaJugadores = JSON.parse(localStorage.getItem("listaJugadores")) || [];
 let listaJugadoresenLS
+
+
+
 
 console.log(listaJugadores)
 
@@ -90,75 +93,102 @@ function mostrarPreguntas() {
         pregunta.id = "pregunta";
         pregunta.innerText = element.pregunta;
         formPreguntas.append(pregunta);
-
+        
         element.opciones.forEach((opcion, i) => {
             let input = document.createElement("input");
             input.type = "radio";
             input.name = "opciones-" + index;
             input.value = opcion;
-
+            
             let label = document.createElement("label");
             label.innerText = opcion;
             label.prepend(input);
-
+            
             formPreguntas.append(label);
             
-           
+            
         });
     });
-
-     formPreguntas.hidden = false;
-     let button = document.createElement("button")
-            button.type="submit"
-            button.name = "enviarRespuestas"
-            button.innerText = "enviar"
+    
+    formPreguntas.hidden = false;
+    let button = document.createElement("button")
+    button.type="submit"
+    button.name = "enviarRespuestas"
+    button.innerText = "enviar"
             formPreguntas.append(button)
 }
-
+        
 function evaluarRespuestas() {
-    berriesTotales = 0;
-
-    preguntas.forEach((pregunta, index) => {
-        let opciones = document.getElementsByName("opciones-" + index);
-
-        opciones.forEach(opcion => {
-            if (opcion.checked && opcion.value === pregunta.respuesta) {
-                berriesTotales += 65000000;
-            } else {
-                berriesTotales += incorrecto;
-            }
+            berriesTotales = 0;
+            
+            preguntas.forEach((pregunta, index) => {
+                let opciones = document.getElementsByName("opciones-" + index);
+                
+                opciones.forEach(opcion => {
+                    if (opcion.checked && opcion.value === pregunta.respuesta) {
+                        berriesTotales += 65000000;
+                    } else {
+                        berriesTotales += incorrecto;
+                    }
+                });
+            });
+            
+            return berriesTotales;
+        }
+        
+        formJugador.addEventListener("submit", (e) => {
+            e.preventDefault();
+            jugador = new Jugador(nombre.value, edad.value, nacionalidad.value, 0);
+            formJugador.hidden = true;
+            mostrarPreguntas();
+            
+            
         });
-    });
-
-    return berriesTotales;
-}
-
-formJugador.addEventListener("submit", (e) => {
-    e.preventDefault();
-    jugador = new Jugador(nombre.value, edad.value, nacionalidad.value, 0);
-    formJugador.hidden = true;
-    mostrarPreguntas();
-    
-    
-});
-
-formPreguntas.addEventListener("submit", (e) => {
-    e.preventDefault();
+        
+        formPreguntas.addEventListener("submit", (e) => {
+            e.preventDefault();
     let respuestasCorrectas = evaluarRespuestas();
     jugador.recompensa = respuestasCorrectas;
     
     mostrarResultado();
-
     
-   
+    
+    
+    
 });
 
-let checkbox = document.getElementById("cbox");
-formJugador.addEventListener("submit", () => {
-    if (checkbox.checked) {
-        repetirPrograma = true;
-    }
-});
+
+
+let juegoNuevo = document.getElementById("juegoNuevo");
+    juegoNuevo.addEventListener("submit", () => {
+    formPreguntas.hidden = true
+    formJugador.hidden = false
+    nombre.value = ""
+    edad.value = ""
+    nacionalidad.value = ""
+     
+    formJugador.addEventListener("submit", (e) => {
+        e.preventDefault();
+        jugador = new Jugador(nombre.value, edad.value, nacionalidad.value, 0);
+        formJugador.hidden = true;
+        mostrarPreguntas();
+        
+        
+    });
+    
+}); 
+let finalizar = document.getElementById("finalizar");
+finalizar.addEventListener("submit", (e) => { 
+    e.preventDefault();
+    formJugador.hidden
+    formPreguntas.hidden
+    mostrarRanking()
+    console.log(finalizar)
+
+})
+function mostrarRanking(){
+    console.log(listaJugadores.index)
+}
 
 
 

@@ -5,13 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trivia One Piece</title>
     <link rel="stylesheet" href="./CSS/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
   </head>
 
   <body>
     <div class="container">
-      <h1>Conviertete en el proximo rey de los piratas!</h1>
+      <h1 class="animate__animated animate__swing">
+        Conviertete en el proximo rey de los piratas!
+      </h1>
       <form id="formJugador">
-        <h2>ingresa tu nombre de pirata</h2>
+        <h2 class="animate__animated animate__wobble">
+          ingresa tu nombre de pirata
+        </h2>
         <div class="form-group">
           <label for="nombre">Nombre:</label>
           <input type="text" id="nombre" required />
@@ -31,19 +44,20 @@
         <h2>Preguntas</h2>
       </form>
 
-      <form id="agregarJugador" hidden>
-        <div class="form-group">
-          <input type="checkbox" id="cbox" />
-          <label for="cbox">Repetir programa</label>
-        </div>
-        <button type="submit">Agregar Jugador</button>
+      <form id="formFinal">
+        <button type="submit" id="finalizar">Finalizar Juego</button>
+        <button type="submit" id="juegoNuevo">Volver a Jugar</button>
       </form>
-      <div id="resultado" hidden>
+      <div id="resultado">
         <p id="recompensa"></p>
         <p id="ranking"></p>
       </div>
     </div>
 
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <script src="./js/script.js"></script>
   </body>
 </html>
