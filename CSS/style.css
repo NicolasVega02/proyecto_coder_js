@@ -3,6 +3,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .container {
   max-width: 400px;

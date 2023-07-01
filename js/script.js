@@ -87,6 +87,13 @@ class Jugador {
 
 
 function mostrarPreguntas() {
+    Toastify({
+        text: "Nuevo Jugador Agregado",
+        style: {
+            background: "#e63946",
+            
+          }
+    }).showToast();
     formPreguntas.innerHTML = "";
     preguntas.forEach((element, index) => {
         let pregunta = document.createElement("p");
@@ -166,29 +173,43 @@ let juegoNuevo = document.getElementById("juegoNuevo");
     nombre.value = ""
     edad.value = ""
     nacionalidad.value = ""
-     
+    
     formJugador.addEventListener("submit", (e) => {
         e.preventDefault();
         jugador = new Jugador(nombre.value, edad.value, nacionalidad.value, 0);
         formJugador.hidden = true;
+        
+         
         mostrarPreguntas();
         
         
     });
     
 }); 
-let finalizar = document.getElementById("finalizar");
-finalizar.addEventListener("submit", (e) => { 
-    e.preventDefault();
-    formJugador.hidden
-    formPreguntas.hidden
-    mostrarRanking()
-    console.log(finalizar)
 
-})
-function mostrarRanking(){
-    console.log(listaJugadores.index)
-}
+finalizar.addEventListener("click", (e) => {
+    e.preventDefault();
+    mostrarRanking();
+  });
+function mostrarRanking() {
+    formPreguntas.hidden
+    formJugador.hidden
+    ranking.hidden = false;
+
+    listaJugadoresenLS = JSON.parse(localStorage.getItem("listaJugadores"));
+    ranking.innerHTML = "<h2>Ranking de Jugadores</h2>";
+    
+    listaJugadoresenLS.sort((a, b) => b.recompensa - a.recompensa);
+    
+    listaJugadoresenLS.forEach((jugador, index) => {
+      let jugadorRank = document.createElement("p");
+      jugadorRank.innerText = `Posición ${index + 1}: ${jugador.nombre} - ${jugador.recompensa} millones de Berries`;
+      ranking.appendChild(jugadorRank);
+    });
+    
+    
+  }
+  
 
 
 
