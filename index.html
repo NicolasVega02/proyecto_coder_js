@@ -14,6 +14,7 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
   </head>
 
   <body>
@@ -45,7 +46,8 @@
       </form>
 
       <form id="formFinal">
-        <button type="submit" id="finalizar">Finalizar Juego</button>
+        <button type="submit" id="finalizar">Mostrar Ranking</button>
+        <button type="click" id="limpiarRanking">Limpiar Ranking</button>
         <button type="submit" id="juegoNuevo">Volver a Jugar</button>
       </form>
       <div id="resultado">
@@ -54,6 +56,7 @@
       </div>
     </div>
 
+    <script src="sweetalert2.all.min.js"></script>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"

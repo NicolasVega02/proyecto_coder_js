@@ -1,16 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=DynaPuff&display=swap");
 body {
   background-image: url(../img/one-piece-yonko-buggy-el-payaso-1.webp);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
+  background-size: contain;
   background-position: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "DynaPuff", sans-serif;
 }
 .container {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: #f8dfaa;
   border-radius: 5px;
 }
 
@@ -26,12 +27,13 @@ h2 {
 .form-group {
   margin-bottom: 10px;
   text-align: left;
+  padding-right: 17px;
 }
 
 label {
   display: block;
   font-weight: bold;
-  color: #1d3557;
+  color: #000000;
 }
 
 input[type="text"],
@@ -44,15 +46,15 @@ input[type="number"] {
 
 button {
   padding: 10px 20px;
-  background-color: #457b9d;
-  color: #fff;
+  background-color: #fc9b0a;
+  color: #000000;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #1d3557;
+  background-color: #a4ff12;
 }
 
 #formPreguntas {
