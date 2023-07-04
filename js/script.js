@@ -178,12 +178,6 @@ finalizar.addEventListener("click", (e) => {
 limpiarRankingButton.addEventListener("click", () => {
     localStorage.removeItem("listaJugadores");
     ranking.hidden = true;
-    Toastify({
-      text: "Ranking Eliminado",
-      style: {
-        background: "#e63946",
-      },
-    }).showToast();
   });
 
 
