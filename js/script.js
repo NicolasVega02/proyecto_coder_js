@@ -73,7 +73,8 @@ function mostrarPreguntas() {
     let button = document.createElement("button")
     button.type="submit"
     button.name = "enviarRespuestas"
-    button.innerText = "enviar"
+    button.innerText = "Enviar"
+    button.className ="botonEnviar"
     formPreguntas.append(button)
 }
 

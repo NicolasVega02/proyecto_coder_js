@@ -51,10 +51,14 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin: 3px;
 }
 
 button:hover {
   background-color: #a4ff12;
+}
+.botonEnviar {
+  margin-left: 40%;
 }
 
 #formPreguntas {
