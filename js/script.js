@@ -95,8 +95,8 @@ function evaluarRespuestas() {
 }
 
 function mostrarRanking() {
-    formPreguntas.hidden
-    formJugador.hidden
+    formPreguntas.hidden = true;
+    formJugador.hidden = true;
     ranking.hidden = false;
 
     listaJugadoresenLS = JSON.parse(localStorage.getItem("listaJugadores"));
